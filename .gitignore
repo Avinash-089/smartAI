@@ -1,0 +1,39 @@
+# Maven Build
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+student-management/target/
+
+# Node & Frontend Build
+**/node_modules/
+**/dist/
+**/build/
+frontend/node_modules/
+frontend/dist/
+
+# Python & AI Microservice
+**/__pycache__/
+*.py[cod]
+*$py.class
+ai-service/__pycache__/
+.venv/
+venv/
+ENV/
+
+# IDE & Editor Configs
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+
+# Environment Variables & Logs
+.env
+.env.local
+*.log
+
+# OS Files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
