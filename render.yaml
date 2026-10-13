@@ -1,0 +1,30 @@
+services:
+  # 1. Spring Boot Backend Service (Dockerized)
+  - type: web
+    name: smart-student-backend
+    runtime: docker
+    dockerfilePath: ./student-management/Dockerfile
+    dockerContext: ./student-management
+    plan: free
+    region: oregon
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://mysql-17931356-avinashakula8055-6056.c.aivencloud.com:18502/defaultdb?sslMode=REQUIRED&allowPublicKeyRetrieval=true
+      - key: SPRING_DATASOURCE_USERNAME
+        value: avnadmin
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+
+      - key: JWT_SECRET
+        value: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      - key: PORT
+        value: 8080
+
+  # 2. Python AI Microservice (Dockerized)
+  - type: web
+    name: smart-student-ai
+    runtime: docker
+    dockerfilePath: ./ai-service/Dockerfile
+    dockerContext: ./ai-service
+    plan: free
+    region: oregon
