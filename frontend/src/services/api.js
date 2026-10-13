@@ -1,5 +1,7 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api';
+const rawApiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:8081/api').trim().replace(/\/+$/, '');
+const BASE_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 let authToken = localStorage.getItem('sms_token') || null;
+
 
 export const setAuthToken = (token) => {
   authToken = token;
